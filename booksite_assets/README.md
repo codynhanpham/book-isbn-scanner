@@ -1,0 +1,2 @@
+## Disclaimer!!!
+Most, if not all, of the graphics and assets here belong to the respective owners. I do not own any of the graphics or assets here. This is just a collection of assets that I have gathered from the websites to use as thumbnails for external links that lead to those respective websites. If you are the owner of any of the graphics or assets here and would like me to remove them, please let me know and I will remove them immediately. Thank you.

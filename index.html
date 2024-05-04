@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book ISBN Scanner - @codynhanpham</title>
+    <meta property="og:title" content="Book ISBN Scanner - @codynhanpham">
+    <meta name="description" content="A physical book caught your eyes? Quickly scan the barcode in the back to look up the book on review sites and online stores!">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://codynhanpham.com/book-isbn-scanner/">
+    <meta property="og:image" content="https://codynhanpham.com/book-isbn-scanner/thumbnail.png">
+    <meta property="og:image:secure" content="https://codynhanpham.com/book-isbn-scanner/thumbnail.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:description" content="A physical book caught your eyes? Quickly scan the barcode in the back to look up the book on review sites and online stores!">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@codynhanpham">
+    <meta name="twitter:creator" content="@codynhanpham">
+    <meta name="twitter:title" content="Book ISBN Scanner - @codynhanpham">
+    <meta name="twitter:description" content="A physical book caught your eyes? Quickly scan the barcode in the back to look up the book on review sites and online stores!">
+    <meta name="twitter:image" content="https://codynhanpham.com/book-isbn-scanner/thumbnail.png">
+
+    <meta name="author" content="Cody Nhan Pham">
+
+    <link rel="canonical" href="https://codynhanpham.com/book-isbn-scanner/">
+    <link rel="icon" href="./assets/site-icon.webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script type="application/javascript" src="./isbn.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+    <script src="booksites_templates/booksites_us.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div id="loading-overlay">
+        <div id="loader-wrapper">
+            <div id="loader"></div>
+        </div>
+    </div>
+
+
+    <div id="app-page">
+        <div id="camera-container">
+            <div id="camera-component"></div>
+        </div>
+
+
+        <div id="controller-overlay">
+            <div id="nav-bar">
+                <div id="nav-bar-wrapper">
+                    <button id="camera-settings-button" class="noselect" onclick="openCameraSelectionOverlay()"></button>
+                    <button id="angry-toggle-button" class="noselect" onclick="toggleForcedMobileMode()" title="If the aspect ratio of the camera is off, try clicking this to force the inversed aspect ratio. Click again to disable."></button>
+                    <button id="fullscreen-toggle-button" class="noselect" onclick="toggleFullScreen()"></button>
+                </div>
+            </div>
+
+            <div id="the-void"></div>
+    
+            <div id="info-panel-container">
+                <div id="expand-selection-zone"></div>
+
+                <div id="info-panel">
+                    <div id="info-panel-header-container">
+                        <div id="restart-button-container">
+                            <button id="restart-button" class="noselect" onclick="resumeCameraScanning()"></button>
+                        </div>
+                    </div>
+                    <div id="content-hint-for-horizontal-layout">
+                        <span class="noselect">↓ content ↓ content ↓ content ↓ content ↓ content ↓</span>
+                    </div>
+
+                    <div id="info-panel-body-container">
+                        <h1 class="center noselect" id="body-title"><i>Waiting for Camera...</i></h1>
+                        <p class="center" id="qr-code-content-wrapper" style="display: none;"><strong><a id="qr-code-atag" class="medium-text" style="cursor: pointer;" title="Click to Copy to Clipboard" onclick="copyBarcodeToClipboard(this)"><span id="qr-code-content"></span> <span id="qr-code-emoji"></span></a></strong></p>
+
+                        <p class="center" style="display: none;" id="not-isbn-notice"><strong><span>This is not an ISBN of <a href="https://en.wikipedia.org/wiki/Bookland" target="_blank">Bookland</a>.<br>Though, you may still see the decoded text above<i>!</i></span></strong></p>
+
+                        <div id="item-info-container" style="display: none;">
+                            <div id="item-info">
+                                <!-- <h2 class="center" style="margin-top: calc(1.7 * var(--font-size));">Book Info</h2> -->
+
+                                <div class="book-cover-wrapper">
+                                    <img src="./assets/TankobonCoverMissing.webp" alt="" id="book-cover">
+                                </div>
+
+                                <p class="center low-margin-top low-margin-bottom large-text"><strong><span id="book-name"></span></strong></p>
+                                <p class="center medium-text"><i><span id="authors"></span></i></p>
+
+                                <div class="spacer-vertical"></div>
+
+                                <p class="center large-text" style="text-underline-offset: calc(0.4 * var(--font-size));"><strong><u>Search for Book:</u></strong></p>
+                                
+                                <div id="search-list-container">
+                                    <!-- <a href="#" target="_blank" class="search-list-item">
+                                        <img src="" alt="" class="search-list-item-logo">
+                                        <span class="search-list-item-text"></span>
+                                    </a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="camera-selection-overlay">
+            <div id="radio-list-container">
+                <h1 class="center">Select Camera</h1>
+            </div>
+        </div>
+
+
+
+    </div>
+</body>
+</html>
