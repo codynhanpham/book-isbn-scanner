@@ -339,14 +339,14 @@ getPreferredCameraAspectRatio();
 function handlePermission() {
     // if camera permission is denied, show an alert
     if (!navigator.permissions) {
-        alert("Browser does not support navigator.permissions. Please allow camera permissions to use this app.");
+        alert("Browser does not support navigator.permissions to enable camera. Embedded browsers in social media apps often fail to support this feature. You may need to use a different browser.");
         return;
     }
 
     navigator.permissions.query({ name: 'camera' }).then((permissionStatus) => {
         if (permissionStatus.state === 'denied') {
             // Show Info overlay with instructions on how to enable camera permissions
-            alert("Camera permissions are denied. Please allow camera permissions to use this app.");
+            alert("Camera permissions are denied. Please allow camera permissions to use this app. You know, cuz' it's a barcode scanner app and all...");
         }
     });
 }
