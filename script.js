@@ -583,7 +583,11 @@ async function startCamera() {
 
         // if screenWidth < 680 flip the selectedCameraAspectRatio
         const isMobile = Math.min(window.screen.width, window.screen.height) < 768 || navigator.userAgent.indexOf("Mobi") > -1;
-        if (isMobile || FORCED_MOBILE_ASPECT_RATIO) {
+        if (isMobile) {
+            aspectRatio = 1 / aspectRatio;
+        }
+
+        if (FORCED_MOBILE_ASPECT_RATIO) {
             aspectRatio = 1 / aspectRatio;
         }
 
