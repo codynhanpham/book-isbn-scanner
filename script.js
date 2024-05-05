@@ -664,22 +664,16 @@ async function handleBookInfo(parsedISBN) {
         console.log(err);
         return;
     });
-    if (!bookInfo || bookInfo.status !== 200) {
-        return;
-    }
     const bookInfoJSON = await bookInfo.json().catch((err) => {
         console.log(err);
-        return;
+        return {};
     });
-    if (!bookInfoJSON) {
-        return;
-    }
 
 
     // Update the book name
     const bookName = document.getElementById('book-name');
     bookName.innerHTML = "";
-    let title = bookInfoJSON.title;
+    let title = bookInfoJSON.title || "!{{Unidentified Book}}";
     // if there is subtitle, add it to the title as title: subtitle
     if (bookInfoJSON.subtitle) {
         title += `: ${bookInfoJSON.subtitle}`;
@@ -735,10 +729,9 @@ async function handleBookInfo(parsedISBN) {
     for (let i = 0; i < BOOKSITES.length; i++) {
         const bookSite = BOOKSITES[i];
         const searchListItem = document.createElement('a');
-        searchListItem.href = bookSite
-            .searchQuery
-            .replace("{{isbn}}", isbn)
-            .replace("{{name}}", title);
+        searchListItem.href = title === "!{{Unidentified Book}}" ?
+            bookSite.searchQuery.replace("{{name}}", "{{isbn}}").replace("{{isbn}}", isbn) :
+                bookSite.searchQuery.replace("{{isbn}}", isbn).replace("{{name}}", title);
 
         searchListItem.target = "_blank";
         searchListItem.className = "search-list-item";
