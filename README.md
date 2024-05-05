@@ -10,6 +10,4 @@ This repo is hosted by GitHub Pages. Below are the link to this app page:
 The PWA for this app is in development. Soon, you can install the app on your device and use it offline.
 
 ## Demo
-Check out the MP4 Demo embedded below!
-
-<video src= "scanner-demo.mp4"/>
+![App Demo](./scanner-demo.gif)
