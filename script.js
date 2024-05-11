@@ -809,3 +809,16 @@ window.onload = async () => {
     const loadingOverlay = document.getElementById('loading-overlay');
     loadingOverlay.classList.add('loaded');
 }
+
+
+
+// ----- SERVICE WORKER REGISTRATION ----- //
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/book-isbn-scanner/PWAserviceWorker.js').then(registration => {
+            console.log('Service Worker registered with scope:', registration.scope);
+        }).catch(err => {
+            console.log('Service Worker registration failed:', err);
+        });
+    });
+}
