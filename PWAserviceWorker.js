@@ -25,7 +25,7 @@ const assets = [
     "/book-isbn-scanner/booksite_assets/google_logo.svg",
     "/book-isbn-scanner/booksite_assets/thestorygraph_icon.png",
     "/book-isbn-scanner/booksite_assets/worldcat_logo.svg",
-    "/book-isbn-scanner/booksite_templates/booksites_us.js",
+    "/book-isbn-scanner/booksites_templates/booksites_us.js",
 ];
 
 self.addEventListener("install", installEvent => {
