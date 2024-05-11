@@ -19,6 +19,7 @@ const assets = [
     "/book-isbn-scanner/assets/app_icon/maskable_icon_x128.png",
     "/book-isbn-scanner/assets/app_icon/maskable_icon_x192.png",
     "/book-isbn-scanner/assets/app_icon/maskable_icon_x384.png",
+    "/book-isbn-scanner/assets/app_icon/maskable_icon_x512.png",
     "/book-isbn-scanner/booksite_assets/amazon_logo.svg",
     "/book-isbn-scanner/booksite_assets/barnesandnoble_logo.svg",
     "/book-isbn-scanner/booksite_assets/goodreads_logo.svg",
