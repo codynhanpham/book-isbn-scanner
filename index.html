@@ -42,8 +42,8 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <script type="application/javascript" src="./isbn.min.js"></script>
-    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script defer type="application/javascript" src="./isbn.min.js"></script>
+    <script defer type="text/javascript" src="./html5-qrcode.min.js"></script>
 
     <script src="booksites_templates/booksites_us.js"></script>
     <script defer src="script.js"></script>
@@ -77,9 +77,9 @@
         <div id="controller-overlay">
             <div id="nav-bar">
                 <div id="nav-bar-wrapper">
-                    <button id="camera-settings-button" class="noselect" onclick="openCameraSelectionOverlay()"></button>
-                    <button id="angry-toggle-button" class="noselect" onclick="toggleForcedMobileMode()" title="If the aspect ratio of the camera is off, try clicking this to force the inversed aspect ratio. Click again to disable."></button>
-                    <button id="fullscreen-toggle-button" class="noselect" onclick="toggleFullScreen()"></button>
+                    <button name="Camera settings" id="camera-settings-button" class="noselect" onclick="openCameraSelectionOverlay()"></button>
+                    <button name="Forcing camera flipped aspect ratio" id="angry-toggle-button" class="noselect" onclick="toggleForcedMobileMode()" title="If the aspect ratio of the camera is off, try clicking this to force the inversed aspect ratio. Click again to disable."></button>
+                    <button name="Fullsceen toggle" id="fullscreen-toggle-button" class="noselect" onclick="toggleFullScreen()"></button>
                 </div>
             </div>
 
@@ -91,7 +91,7 @@
                 <div id="info-panel">
                     <div id="info-panel-header-container">
                         <div id="restart-button-container">
-                            <button id="restart-button" class="noselect" onclick="resumeCameraScanning()"></button>
+                            <button name="Restart ISBN scanning" id="restart-button" class="noselect" onclick="resumeCameraScanning()"></button>
                         </div>
                     </div>
                     <div id="content-hint-for-horizontal-layout">

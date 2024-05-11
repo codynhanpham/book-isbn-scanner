@@ -4,6 +4,7 @@ const assets = [
     "/book-isbn-scanner/index.html",
     "/book-isbn-scanner/style.css",
     "/book-isbn-scanner/script.js",
+    "/book-isbn-scanner/html5-qrcode.min.js",
     "/book-isbn-scanner/isbn.min.js",
     "/book-isbn-scanner/manifest.json",
     "/book-isbn-scanner/assets/angry.png",

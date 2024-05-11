@@ -654,6 +654,12 @@ async function handleBookInfo(parsedISBN) {
     const qrCodeContent = document.getElementById('qr-code-content');
     qrCodeContent.innerHTML = parsedISBN.isIsbn13 ? parsedISBN.isbn13h : parsedISBN.isbn10h;
 
+
+    if (!navigator.onLine) {
+        return;
+    }
+
+
     // change book cover to placeholder
     const bookCover = document.getElementById('book-cover');
     bookCover.src = "./assets/TankobonCoverMissing.webp";
