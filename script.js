@@ -436,6 +436,8 @@ const qrCodeSuccessCallback = async (decodedText, decodedResult) => {
     // hide the item-info-container
     const itemInfoContainer = document.getElementById('item-info-container');
     itemInfoContainer.style.display = 'none';
+    const noInternetNotice = document.getElementById('no-internet-notice');
+    noInternetNotice.style.display = 'none';
 
 
     // change #body-title to "Scan Result"
