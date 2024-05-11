@@ -648,6 +648,8 @@ const ISBN = window.ISBN;
 async function handleBookInfo(parsedISBN) {
     const itemInfoContainer = document.getElementById('item-info-container');
     itemInfoContainer.style.display = 'none';
+    const noInternetNotice = document.getElementById('no-internet-notice');
+    noInternetNotice.style.display = 'none';
 
 
     // Change #qr-code-content to hyphenated ISBN
@@ -656,6 +658,8 @@ async function handleBookInfo(parsedISBN) {
 
 
     if (!navigator.onLine) {
+        // show #no-internet-notice
+        noInternetNotice.style.display = 'block';
         return;
     }
 
@@ -670,10 +674,19 @@ async function handleBookInfo(parsedISBN) {
     // Fetch book info from OpenLibrary API: https://openlibrary.org/isbn/{isbn}.json
     const openLibraryAPIroute = `https://openlibrary.org/isbn/${isbn}.json`;
 
-    const bookInfo = await fetch(openLibraryAPIroute).catch((err) => {
-        console.log(err);
+    let bookInfo;
+    try {
+        bookInfo = await fetch(openLibraryAPIroute).catch((err) => {
+            console.log(err);
+            return;
+        });
+    }
+    catch (err) {
+        // Most likely a network error or offline
+        noInternetNotice.style.display = 'block';
         return;
-    });
+    }
+
     const bookInfoJSON = await bookInfo.json().catch((err) => {
         console.log(err);
         return {};
